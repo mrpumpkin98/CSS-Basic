@@ -1,0 +1,14 @@
+* {
+    background-color: aqua;
+}
+div {
+    background-color: blue;
+}
+
+.text-class {
+    background-color: brown;
+}
+
+#text-id {
+    background-color: azure;
+}

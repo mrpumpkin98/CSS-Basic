@@ -1,0 +1,12 @@
+.button1:active {
+    background: rebeccapurple;
+    color: white;
+}
+
+.input1:focus {
+    background:aquamarine;
+}
+
+.link1:visited {
+    color: aqua;
+}
