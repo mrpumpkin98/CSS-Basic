@@ -1,0 +1,471 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* <!---------------------- 베너 영역 ----------------------> */
+
+.mainBanner {
+    width: 100%;
+    height: 280px;
+    background-image: url(./img/banner.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainBanner .text {
+    font-size: 42px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    animation: titleText 1s ease-in-out;
+}
+
+/* <!---------------------- 베너 transition 영역 ----------------------> */
+
+@keyframes titleText {
+    0% {
+        transform: translateY(70px);
+        opacity: 0;
+    }
+    92% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* <!---------------------- 바디 영역 ----------------------> */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.mainBody {
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    margin: 26px 0px;
+}
+
+/* <!---------------------- 메뉴 영역 ----------------------> */
+
+.mainMenu{
+    width: 170px;
+    display: flex;
+    flex-direction: column;
+}
+
+.orangeMenu {
+    background: orange;
+    padding: 25px 0px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.menu {
+    font-size: 16px;
+    padding: 10px 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#a{
+    color: white;
+    z-index: 3;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+
+
+.menu:after {
+    content: "";
+    display: block;
+    background: rgb(255, 153, 0);
+    border-radius: 20px;
+    width: 140px;
+    height: 47px;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+}
+
+.menu1 {
+    margin-top: 50px;
+}
+
+.blackMenu {
+    padding: 10px 20px;
+
+    font-size: 16px;
+    color: white;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#b{
+    color: white;
+    text-decoration: none;
+}
+
+.arrow{
+    margin-left: 13px;
+}
+
+/* <!---------------------- 메뉴 transition 영역 ----------------------> */
+
+.menu:hover::after {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out 0.1s;
+}
+
+.menu:hover #a {
+    font-weight: 550;
+    transform: translateX(20px);
+    transition: transform 0.3s ease-in-out 0.1s;
+}
+
+.blackMenu:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    transition: background-color 0.3s ease-in-out 0.1s;
+    transition: color 0.3s ease-in-out 0.1s;
+}
+
+.blackMenu:hover .arrow {
+    transform: translateX(50px);
+    transition: transform 0.3s ease-in-out 0.1s;
+}
+
+.blackMenu:hover #b {
+    font-weight: 550;
+    color: black;
+    transition: color 0.3s ease-in-out 0.1s;
+} 
+
+/* <!---------------------- 카드 영역 ----------------------> */
+
+.mainCard{
+    width: calc(100% - 170px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-left: 15px;
+}
+
+.itemWrap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap : wrap;
+}
+
+.item {
+    width: calc(25% - 7px);
+    aspect-ratio: 6 / 5;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.imgBox {
+    width: 100%;
+    height: 100%;
+}
+
+.imgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.textBox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px; 
+    z-index: 3;
+}
+
+.textBox p {
+    color: white;
+    margin: 5px 0 0;
+}
+
+.item:after {
+    content: "";
+    display: block;
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+}
+
+.textBox__name {
+    font-size: 22px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.textBox__price {
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+
+/* <!---------------------- 카드 transition 영역 ----------------------> */
+
+.item:hover .imgBox img {
+    transform: scale(1.1);
+    filter: blur(3px);
+}
+
+.item:hover::after {
+    opacity: 1;
+}
+
+.item:hover .textBox__name {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out 0.2s;
+    
+}
+
+.item:hover .textBox__price {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.6s ease-in-out 0.18s;
+}
+
+.item:after,
+.item .imgBox img,
+.item .textBox__name,
+.item.textBox__price {
+    transition: all 0.4s ease-in-out;
+}
+
+@media screen and (max-width: 767px){
+
+    .mainBanner{
+        height: 160px;
+    }
+
+    .mainBanner .text{
+        font-size: 26px;
+    }
+
+    .mainBody{
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mainMenu{
+        width: 100%;
+    }
+
+    .orangeMenu{
+        height: 20px;
+        border-radius: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .menu{
+        font-size: 14px;
+    }
+
+    .blackMenu{
+        display: none;
+    }
+
+    .mainCard{
+        padding-left: 0px;
+        width: 100%;
+    }
+
+    .item{
+        width: calc(50%);
+        margin-top: 12px;
+        padding: 0 10px;
+        overflow: visible;
+        
+    }
+
+    .textBox {
+        width: 100%;
+        height: 90px;
+        border: 1px solid #dddddd;
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 20px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        z-index: 3;
+    }
+
+    .textBox__name {
+        font-size: 20px;
+        font-weight: 500;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .textBox__price {
+        font-size: 14px;
+        font-weight: 400;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .textBox p {
+        color: black;
+        margin: 5px 0 0;
+    }
+
+    .item:after{
+        display: none;
+    }
+
+    .item:hover .imgBox img {
+        transform: scale(1);
+        filter: blur(0px);
+    }
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width : 1023px) {
+    .mainBanner {
+        width: 100%;
+        height: 280px;
+        background-image: url(./img/banner.jpg);
+        background-size: cover;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .mainBanner .text {
+        font-size: 42px;
+        font-weight: 700;
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        animation: titleText 1s ease-in-out;
+    }
+
+    .mainBody{
+        width: 98%;
+        display: flex;
+    }
+
+    .mainMenu{
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+
+    .mainCard{
+        padding-left: 0px;
+        width: 100%;
+    }
+
+    .item{
+        width: calc(50%);
+        padding: 0px 10px 10px 10px;
+        overflow: visible;
+        
+    }
+
+    .textBox {
+        width: 100%;
+        height: 90px;
+        border: 1px solid #dddddd;
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 20px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        z-index: 3;
+    }
+
+    .textBox__name {
+        font-size: 20px;
+        font-weight: 500;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .textBox__price {
+        font-size: 14px;
+        font-weight: 400;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .textBox p {
+        color: black;
+        margin: 5px 0 0;
+    }
+
+    .item:after{
+        display: none;
+    }
+
+    .item:hover .imgBox img {
+        transform: scale(1);
+        filter: blur(0px);
+    }
+
+
+}
